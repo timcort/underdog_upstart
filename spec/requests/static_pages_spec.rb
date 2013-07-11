@@ -5,8 +5,8 @@ describe "StaticPages" do
   describe "Home page" do
 
   	it "should have the content 'UnderdogUpstart'" do
-  		visit '/static_pages/home'
-  		expect(page).to have_content('UnderdogUpstart')
+  		visit root_path
+  		expect(page).to have_content('Underdog Upstart')
   	end
   end
 end
