@@ -1,12 +1,16 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Underdog Upstart", '#', id: "logo" %>
+      <%= link_to "Underdog Upstart", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    '#', id: "head-link" %></li>
-          <li><%= link_to "About",    '#', id: "head-link" %></li>
-          <li><%= link_to "Sign in", '#', id: "head-link" %></li>
+          <li><%= link_to "Home", root_path, id: "head-link" %></li>
+          <li><%= link_to "About",about_path, id: "head-link" %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Sign out", signout_path, method: "delete", id: "head-link" %></li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path, id: "head-link" %></li>
+          <% end %>
         </ul>
       </nav>
     </div>
