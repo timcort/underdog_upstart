@@ -7,6 +7,7 @@
           <li><%= link_to "Home", root_path, id: "head-link" %></li>
           <li><%= link_to "About",about_path, id: "head-link" %></li>
           <% if signed_in? %>
+            <li><%= link_to "Settings", edit_user_path(current_user), id: "head-link" %></li>
             <li><%= link_to "Sign out", signout_path, method: "delete", id: "head-link" %></li>
           <% else %>
             <li><%= link_to "Sign in", signin_path, id: "head-link" %></li>
