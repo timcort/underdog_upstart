@@ -1,7 +1,9 @@
 UnderdogUpstart::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :products
+  resources :products do
+    resources :sections
+  end
 
   root 'static_pages#home'
 

@@ -20,6 +20,7 @@ describe Product do
   it { should respond_to(:demo_vid) }
   it { should respond_to(:premium) }
   it { should respond_to(:benefits) }
+  it { should respond_to(:sections) }
 
 
   it { should be_valid }
@@ -57,5 +58,23 @@ describe Product do
   describe "when benefits are not present" do
   	before { @product.benefits = nil }
   	it { should_not be_valid }
+  end
+
+  describe "product associations" do
+    before { @product.save } 
+    let!(:section_one) do
+      FactoryGirl.create(:section, product: @product)
+    end
+    let!(:section_two) do
+      FactoryGirl.create(:section, product: @product)
+    end
+    it "should destroy associated sections" do
+      sections = @product.sections.to_a
+      @product.destroy
+      expect(sections).not_to be_empty
+      sections.each do |section|
+        expect(Section.where(id: section.id)).to be_empty
+      end
+    end
   end
 end

@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@section = @product.sections.find_by_id(params[:id])
 	end
 
 	def edit
@@ -25,7 +26,7 @@ class ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.update_attributes(product_params)
-			flash[:success] = "Product updated"
+			flash.now[:success] = "Product updated"
 			render 'edit'
 		else
 			render 'edit'

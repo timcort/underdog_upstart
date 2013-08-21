@@ -1,36 +1,38 @@
 <% provide(:title, "Edit Product") %>
-<h1>Edit Product</h1>
+<div class="container">
+	<h1>Edit Product</h1>
 
-<div class="row">
-	<div class="span6 offset3">
-		<%= form_for(@product) do |f| %>
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for(@product) do |f| %>
 
-			<%= render 'shared/error_messages', object: f.object %>
+				<%= render 'shared/error_messages', object: f.object %>
 
-			<%= f.label :title %>
-			<%= f.text_field :title %>
+				<%= f.label :title %>
+				<%= f.text_field :title %>
 
-			<%= f.label :heading %>
-			<%= f.text_field :heading %>
+				<%= f.label :heading %>
+				<%= f.text_field :heading %>
 
-			<%= f.label :sub_heading %>
-			<%= f.text_field :sub_heading %>
+				<%= f.label :sub_heading %>
+				<%= f.text_field :sub_heading %>
 
-			<%= f.label :price %>
-			<%= f.text_field :price %>
+				<%= f.label :price %>
+				<%= f.text_field :price %>
 
-			<%= f.label :demo_vid %>
-			<%= f.text_area :demo_vid %>
+				<%= f.label :demo_vid %>
+				<%= f.text_area :demo_vid %>
 
-			<%= f.check_box :premium %>
-			<%= f.label :premium %>
-			
+				<%= f.check_box :premium %>
+				<%= f.label :premium %>
+				
 
-			<%= f.label :benefits %>
-			<%= f.text_area :benefits %>
+				<%= f.label :benefits %>
+				<%= f.text_area :benefits %>
 
-			<%= f.submit "save changes", 
-						  class: "btn btn-large btn-primary" %>
-		<% end %>
+				<%= f.submit "save changes", 
+							  class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
 	</div>
 </div>

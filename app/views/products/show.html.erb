@@ -41,10 +41,13 @@
 		<div class="row-fluid">
 			<div class="span8 offset2 benefit_box">
 				<ul class="">
-					<li>vid 1</li>
-					<li>vid 2</li>
-					<li>vid 3</li>
-					<li>vid 4</li>
+					<% @product.sections.each do | section | %>
+						<li>
+							<%= link_to section.title, product_section_path(@product, section) %> <br>
+							<%= section.description %>
+						</li>
+					<% end %>
+					<%= link_to "+ add section", new_product_section_path(@product) %>
 				</ul>
 			</div>
 		</div>
