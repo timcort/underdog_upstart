@@ -9,4 +9,18 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-UnderdogUpstart::Application.config.secret_key_base = '5e230714e500da21b1db0327b11ac9ed3e3fb4f19435faf5750cde9c6813e75e972d8d47aca21a0d4885a56fc913dd22305117866680c174fb4f2314db605fe8'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+UnderdogUpstart::Application.config.secret_key_base = secure_token
