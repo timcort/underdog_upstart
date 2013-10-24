@@ -28,4 +28,19 @@ FactoryGirl.define do
 		description "Lorem ipsum"
 		product
 	end
+
+	factory :cart do
+		user
+		# purchused_at 'time.now'
+	end
+
+	factory :line_item do
+		product
+		cart
+	end
+
+	factory :account_item do
+		user
+		product
+	end
 end

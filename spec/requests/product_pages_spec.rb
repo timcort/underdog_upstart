@@ -35,4 +35,26 @@ describe "Product Pages" do
 			end
 		end
 	end
+
+	describe "show page" do
+		describe "when a visitor" do
+
+			before { visit product_path(product) }
+			#click start tutorial should redirect to sign_up/sign_in path
+
+			#click section link should redirect to sign_up/sign in and 
+			#flash must be a member to access tutorial
+		end
+
+		describe "when user is logged in" do
+			describe "when product is already a user account item" do
+				#visit page should have button resume tutorial
+			end
+
+			describe "when product is not a user account item" do
+				# if free click button should create an account item
+				# if premium click button should create a line item 
+			end
+		end
+	end
 end

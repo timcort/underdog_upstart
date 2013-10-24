@@ -20,7 +20,10 @@ describe Product do
   it { should respond_to(:demo_vid) }
   it { should respond_to(:premium) }
   it { should respond_to(:benefits) }
+
   it { should respond_to(:sections) }
+  it { should respond_to(:line_items) }
+  it { should respond_to(:account_items) }
 
 
   it { should be_valid }
